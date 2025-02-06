@@ -1,0 +1,53 @@
+@use "../../styles/variables" as *;
+
+.slider {
+  width: 90% !important;
+  height: 300px !important;
+}
+.splide_slide {
+  height: 300px !important;
+}
+.arrows {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 1.2%;
+  img {
+    cursor: pointer;
+
+    height: auto;
+    transition: all 0.3s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  .prev {
+    transform: rotateZ(180deg);
+    width: 35%;
+  }
+  .next {
+    width: 35%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .slider {
+    width: 100% !important;
+  }
+  .prev {
+    width: 27% !important;
+  }
+  .next {
+    width: 27% !important;
+  }
+}
+@media screen and (min-width: 1550px) {
+  .slider {
+    width: 90% !important;
+    height: 400px !important;
+  }
+  .splide_slide {
+    height: 400px !important;
+  }
+}

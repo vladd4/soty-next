@@ -1,0 +1,122 @@
+{
+    "header": {
+        "service_link": "Services",
+        "portfolio_link": "Portfolio",
+        "clients_link": "Our Clients",
+        "contact_link": "Contacts",
+        "button": "Contact Us"
+      },
+      "welcome": {
+        "p": "Providing comprehensive online business promotion services: UX/UI design, website development and maintenance, SEO, Google Ads, and SMM.",
+        "button": "Our Works",
+        "h_start": "Creating",
+        "h_end": "websites",
+        "str_1": "modern",
+        "str_2": "effective",
+        "str_3": "innovative",
+        "str_4": "unique"
+      },
+      "about": {
+        "span": "Web-agency Qwant Web",
+        "h": "- your reliable partner in web development, design, and branding.",
+        "p_1": "Welcome to Qwant Web, your reliable partner in the world of digital solutions and innovative web design. Founded in 2023, our agency combines a creative approach, technical expertise, and strategic thinking to create unique and effective web solutions.",
+        "p_2": "Our goal is to turn your ideas into reality by creating websites that not only look great but also function flawlessly. We understand the importance of providing the best user experience and the significance of a strong online presence in modern business.",
+        "p_3": "Our team consists of experienced professionals who are experts in web design, development, SEO optimization, content marketing, and many other aspects of the digital world. We are dedicated to our work and pride ourselves on the ability to create innovative and effective solutions that help our clients achieve their business goals.",
+        "p_4": "At Qwant Web, we don't just develop websites; we build long-term partnerships with our clients, providing continuous support and consultation to ensure their ongoing success in the digital space.",
+        "numbers_1": "Years in the market",
+        "numbers_2": "Successful projects",
+        "numbers_3": "Experts in the team",
+        "numbers_4": "Satisfied clients"
+      },
+      "slider": {
+        "p": "At Qwant Web, we take pride in our partnerships with clients and the high quality of our services. Our clients' testimonials reflect our dedication to work and our passion for creating perfect web solutions."
+      },
+      "services": {
+        "web_h": "Web Development",
+        "web_p": "At Qwant Web, we understand the importance of a strong online presence. Our web developers use modern technologies and advanced practices to create websites that not only meet your needs but exceed expectations. We work with various platforms, including WordPress, Shopify, and others, ensuring full compatibility with all devices and browsers.",
+        "design_h": "Design and UX/UI",
+        "design_p": "Our designers focus on creating a unique visual style that reflects your brand's identity. We conduct user research to ensure that every design aspect meets the needs and expectations of your target audience, while also maintaining design coherence across all digital platforms.",
+        "seo_h": "SEO Optimization",
+        "seo_p": "Our SEO experts use the latest methods and tools to optimize your website, ensuring its visibility in search engines such as Google and Bing. We analyze keywords, optimize content and site structure, and perform external linking to enhance your rankings.",
+        "brand_h": "Effective Branding",
+        "brand_p": "We offer brand concept development services, defining the unique identity of your brand, including mission, vision, and values that help you stand out in the market. We create visual elements that reflect your identity, including logos, color palettes, fonts, and brand elements.",
+        "market_h": "Social Media Marketing",
+        "market_p": "We develop creative and engaging campaigns on social media that directly communicate with your audience. Our services include content creation, community management, social media advertising, and analytics to measure campaign effectiveness and maximize your online presence.",
+        "tech_h": "Support and Technical Maintenance",
+        "tech_p": "We provide a complete range of support and maintenance services to ensure the flawless operation of your website, including regular updates, data backup, and error fixing. Our team ensures protection against hacking attacks and viruses, and installs SSL certificates to secure user data."
+      },
+    "faq": {
+        "faq_h_1": "What is Qwant Web and what services do you provide?",
+        "faq_p_1": "Qwant Web is a professional website development company specializing in the design, development, and maintenance of websites for businesses and individual clients.",
+        "faq_h_2": "What are the stages of website development?",
+        "faq_p_2": "Website development involves several key stages: planning, design, development, testing, and launch. Each stage requires close collaboration with the client to achieve optimal results.",
+        "faq_h_3": "Can I update the website myself after it's created?",
+        "faq_p_3": "Yes, we can integrate a Content Management System (CMS) that allows you to easily update text and graphical content on your website without the need for programming skills.",
+        "faq_h_4": "What services do you offer?",
+        "faq_p_4": "We offer a full range of website development services, including web design, client and server-side development, search engine optimization (SEO), and the creation of responsive mobile applications.",
+        "faq_h_5": "What is the average time for website development?",
+        "faq_p_5": "The development time for a website can vary depending on the project's complexity. Typically, it ranges from 2 weeks to several months. We can provide a more accurate estimate after discussing your specific requirements.",
+        "faq_h_6": "What technologies do you use in your work?",
+        "faq_p_6": "We use a variety of technologies, including HTML, CSS, JavaScript, TypeScript, PHP, Ruby, Python, Java, and various frameworks (React, Next, Nuxt, Spring Boot) and CMS systems such as WordPress, Drupal, and others.",
+        "faq_h_7": "Do you handle optimization for mobile devices?",
+        "faq_p_7": "Yes, all our websites are developed with mobile responsiveness in mind to ensure an optimal user experience on various devices.",
+        "faq_h_8": "How much does website development cost at Qwant Web?",
+        "faq_p_8": "The cost of a website depends on various factors such as the scope of work, functionality, and individual requirements. We are ready to provide a personalized estimate after a detailed discussion of your needs and requirements."
+    },
+    "form": {
+        "h1": "What do you",
+        "span": "qwant",
+        "p": "If you are looking for a professional team to develop your website, improve an existing web project, or need consultation on digital marketing, we are ready to help. Please fill out the form to request our services or get a consultation. We will contact you as soon as possible to discuss your needs and how we can assist.",
+        "button": "Send",
+        "name": "Name*",
+        "number": "Phone Number*",
+        "message": "Message"
+    },
+    "footer": {
+        "h_1": "Learn more",
+        "h_2": "Contacts",
+        "h_3": "Social Media",
+        "main_link": "Home",
+        "about_link": "About Us",
+        "serv_link": "Services",
+        "port_link": "Portfolio",
+        "faq_link": "FAQ",
+        "form_link": "Contact Form"
+    },
+    "modal": {
+        "h": "Get a free consultation from our experts.",
+        "button": "Send",
+        "form_name": "Name*",
+        "form_number": "Phone Number*"
+    },
+    "portfolio": {
+        "more_button": "Explore website",
+        "all_button": "View all projects",
+        "home_button": "Back to main page",
+        "semillon_p": "Landing page for the beach complex Semillon Club in Lviv. Created a modern design and developed the website.",
+        "leader_p": "One-page website for the advertising agency Lead-er. Developed a convenient design and a website from scratch.",
+        "mix_p": "Catalog website for the door and window store Mix House in Kovel. Created an innovative design and developed the website.",
+        "bilyzna_p": "Online lingerie store Білизна Boutique. Developed a user-friendly design, store logic, and SEO optimization.",
+        "t1_p": "Business card website for the transit declaration company T1 Logistics. Created a modern design and developed the site.",
+        "stelya_p": "Catalog website for the stretch ceiling store Stelya Store in Kyiv. Created an adaptive design, developed the website, and performed SEO.",
+        "sotu_p": "Website for renting warehouses, pallet spaces, and storage in Lviv - Sotu Sklad. Created a modern design and developed the website.",
+        "palme_p": "Business card website for the massage complex Palme Home in Dubai. Created an interesting design and developed a multilingual website.",
+        "portfolio_p": "Portfolio website for the foreign designer John Teera. Created a modern and interesting design and developed the web page.",
+        "climate_p": "Catalog website for climate equipment shop Climate Kovel. Modern design, site and SEO set up.",
+        "beef_p": "Unique logo for the meat shop Beef Kovel.",
+        "salong_p": "Unique logo for the mobile app Salong Mobile App.",
+        "bath_p": "Unique logo for the lifestyle podcast Bath Podcast.",
+        "escar_p": "Unique logo for the car service Escar Service.",
+        "umka_p": "Unique logo for the Ukrainian sniper division Umka.",
+        "pods_p": "Unique logo for the electronic cigarette store Sklep Pods.",
+        "leleka_p": "Unique logo for the food delivery service Leleka Delivery.",
+        "lecoco_p": "Unique logo concept for the organization LeCoco.",
+        "korobok_p": "Unique logo and mockup for the Ukrainian singer Korobok Pavel.",
+        "startup_p": "Landing page for the StartUp company. Developed a user-friendly web design, created a fast and efficient website.",
+        "stailer_p": "One-page catalog website for the Stailer product. Designed a modern interface and developed a website from scratch.",
+        "kaps_p": "One-page catalog website for the Parasolka product. Created an adaptive design, developed the website, and implemented SEO.",
+        "radiant_p": "Unique logo and name for a woman skincare business Radiant Beauty Lab.",
+        "yukon_p": "Multi-page website for the distribution company YUKON. Unique design created, website developed, and SEO implemented.",
+        "yukon_brand_p": "Rebranding for YUKON and YUKON Logistic companies with attention-grabbing logo and color palette."
+    }
+}

@@ -1,0 +1,100 @@
+"use client";
+
+import styles from "./Modal.module.scss";
+
+import Polygon from "@/../public/modal-polygon.png";
+import Close from "@/../public/close.svg";
+
+import { useState } from "react";
+
+import { sendFormToTelegram } from "../../utils/sendTelegram";
+
+import {
+  resetData,
+  setIsVisit,
+  setShowModal,
+} from "../../redux/slices/modalSlice";
+
+import toast from "react-hot-toast";
+import Image from "next/image";
+import { useAppDispatch, useAppSelector } from "@/hooks/redux-hooks";
+
+const Modal = () => {
+  const [name, setName] = useState("");
+  const [tel, setTel] = useState("");
+  const [post, setPost] = useState("");
+
+  const { size, termin, price, showModal, isVisit } = useAppSelector(
+    (state) => state.modal
+  );
+  const dispatch = useAppDispatch();
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (name.trim() === "" || tel.trim() === "") {
+      toast.error("Заповніть, будь-ласка, необхідні поля!");
+      return;
+    }
+    let string;
+    !isVisit
+      ? (string = `Проект: Соти \nІм'я: ${name} \nНомер телефону: ${tel} \nE-mail: ${post} \nРозмір: ${size.size}^2  \nТермін: ${termin} \nЦіна: ${price} грн\n`)
+      : (string = `Проект: Соти \nІм'я: ${name} \nНомер телефону: ${tel} \nE-mail: ${post} \n`);
+    sendFormToTelegram(string);
+    setName("");
+    setTel("");
+    setPost("");
+    dispatch(resetData());
+    dispatch(setIsVisit(false));
+    dispatch(setShowModal(false));
+  };
+  return (
+    <>
+      <section
+        className={`${styles.root} ${showModal ? styles.show_modal : ""}`}
+        id="modal"
+      >
+        <article className={styles.wrapper}>
+          <Image
+            alt="Close"
+            src={Close}
+            className={styles.span}
+            onClick={() => dispatch(setShowModal(false))}
+          />
+          <Image alt="Polygon" src={Polygon} className={styles.polygon} />
+          <h3>З Вами зв'яжеться наш менеджер та опрацює Вашу заявку</h3>
+          <div className={styles.form_block}>
+            <input
+              type="text"
+              required
+              placeholder="Ваше ім'я"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              type="text"
+              required
+              placeholder="Номер телефону"
+              value={tel}
+              onChange={(e) => setTel(e.target.value.replace(/\D/g, ""))}
+            />
+            <input
+              type="mail"
+              placeholder="Електронна пошта"
+              value={post}
+              onChange={(e) => setPost(e.target.value)}
+            />
+          </div>
+          <button onClick={(e) => handleClick(e)}>Підтвердити</button>
+        </article>
+      </section>
+      <div
+        className={`${styles.overflow} ${
+          showModal ? styles.show_overflow : ""
+        }`}
+        id="overflow"
+        onClick={() => dispatch(setShowModal(false))}
+      />
+    </>
+  );
+};
+export default Modal;
