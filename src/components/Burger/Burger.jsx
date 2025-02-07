@@ -15,16 +15,17 @@ const Burger = ({ clicked, setClicked, i18n, t }) => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      const burger = document.querySelector("#burger-icon");
       if (
         componentRef.current &&
         !componentRef.current.contains(event.target) &&
-        event.target !== burger
+        !document.querySelector("#burger-icon")?.contains(event.target)
       ) {
         setClicked(false);
       }
     };
+
     document.addEventListener("click", handleClickOutside);
+
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
