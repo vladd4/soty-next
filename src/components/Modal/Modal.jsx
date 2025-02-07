@@ -18,11 +18,14 @@ import {
 import toast from "react-hot-toast";
 import Image from "next/image";
 import { useAppDispatch, useAppSelector } from "@/hooks/redux-hooks";
+import { useTranslation } from "react-i18next";
 
 const Modal = () => {
   const [name, setName] = useState("");
   const [tel, setTel] = useState("");
   const [post, setPost] = useState("");
+
+  const { t } = useTranslation();
 
   const { size, termin, price, showModal, isVisit } = useAppSelector(
     (state) => state.modal
@@ -61,30 +64,30 @@ const Modal = () => {
             onClick={() => dispatch(setShowModal(false))}
           />
           <Image alt="Polygon" src={Polygon} className={styles.polygon} />
-          <h3>З Вами зв'яжеться наш менеджер та опрацює Вашу заявку</h3>
+          <h3>{t("modal_p")}</h3>
           <div className={styles.form_block}>
             <input
               type="text"
               required
-              placeholder="Ваше ім'я"
+              placeholder={t("modal_name")}
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
             <input
               type="text"
               required
-              placeholder="Номер телефону"
+              placeholder={t("modal_phone")}
               value={tel}
               onChange={(e) => setTel(e.target.value.replace(/\D/g, ""))}
             />
             <input
               type="mail"
-              placeholder="Електронна пошта"
+              placeholder={t("modal_post")}
               value={post}
               onChange={(e) => setPost(e.target.value)}
             />
           </div>
-          <button onClick={(e) => handleClick(e)}>Підтвердити</button>
+          <button onClick={(e) => handleClick(e)}>{t("modal_btn")}</button>
         </article>
       </section>
       <div

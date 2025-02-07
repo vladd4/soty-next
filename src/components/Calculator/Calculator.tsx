@@ -38,6 +38,7 @@ import {
   setSize,
   setTermin,
 } from "@/redux/slices/modalSlice";
+import { useTranslation } from "react-i18next";
 
 const cars = [
   { text: "1-2 м", icon: Icon1, size: ["1 м", "1.5 м", "2 м"] },
@@ -52,6 +53,8 @@ const cars = [
 
 const Calculator = () => {
   const dispatch = useAppDispatch();
+
+  const { t } = useTranslation();
 
   const termins = useAppSelector((state) => state.calculator.terminIndividual);
   const sizes = useAppSelector((state) => state.calculator.sizesIndividual);
@@ -68,7 +71,6 @@ const Calculator = () => {
     icon: string;
     size: string[];
   } | null>(null);
-  const isMobile = false;
 
   const getIconUrl = () => {
     let src;
@@ -145,16 +147,10 @@ const Calculator = () => {
 
   return (
     <section className={styles.root} id="calculator">
-      <h3>Калькулятор</h3>
-      <p>
-        У нас доступні міні склади різних розмірів, щоб краще зрозуміти якого
-        розміру вам необхідний склад, прохання скористайтеся калькулятором
-      </p>
+      <h3>{t("calc_h")}</h3>
+      <p>{t("calc_p")}</p>
       <article className={styles.car_block}>
-        <p>
-          Обравши авто яким привезете речі, система підкаже, який розмір складу
-          необхідний
-        </p>
+        <p>{t("ind_calc_auto")}</p>
         <div className={styles.icons_row}>
           {cars.map((car) => {
             const isClicked = car === clickedCar;
@@ -198,7 +194,7 @@ const Calculator = () => {
         data-aos-offset="0"
         data-aos-duration="1000"
       >
-        <p>Або одразу обирайте розміри складу, що вас цікавить</p>
+        <p>{t("ind_calc_size")}</p>
         <div className={styles.top_block}>
           <div className={styles.size_block}>
             <div className={styles.sizes}>
@@ -208,94 +204,52 @@ const Calculator = () => {
                 src={getIconUrl()}
               />
               {sizes && sizes.length > 0 ? (
-                isMobile ? (
-                  <select
-                    onChange={(e) => {
-                      const selectedSize = sizes?.find(
-                        (size) => size.price === parseFloat(e.target.value)
-                      );
-                      toggleSize(
-                        e.target.value === "placeholder" ? null : selectedSize,
-                        setClickedSize,
-                        clickedSize,
-                        sizes,
-                        dispatch,
-                        setSize
-                      );
-                    }}
-                  >
-                    <option selected value="placeholder">
-                      calc_size_placeholder_boxes
-                    </option>
-                    {sizes.map((size) => {
-                      return (
-                        <option
-                          key={size.price}
-                          selected={
-                            size?.size === clickedSize?.size ? true : false
-                          }
-                          value={size.price}
-                          disabled={
-                            size.quantity <= 0 ||
-                            (clickedCar &&
-                              !clickedCar.size.includes(size.size)) ||
-                            undefined
-                          }
-                        >
-                          {size.size}
-                          <sup>2</sup>
-                        </option>
-                      );
-                    })}
-                  </select>
-                ) : (
-                  <div className={styles.size_row}>
-                    {sizes.map((size) => {
-                      const isClicked = size.size === clickedSize?.size;
-                      return (
-                        <div
-                          key={size.price}
-                          style={
-                            size.quantity <= 0 ||
-                            (clickedCar && !clickedCar.size.includes(size.size))
-                              ? { pointerEvents: "none" }
-                              : { pointerEvents: "auto" }
-                          }
-                          className={`
+                <div className={styles.size_row}>
+                  {sizes.map((size) => {
+                    const isClicked = size.size === clickedSize?.size;
+                    return (
+                      <div
+                        key={size.price}
+                        style={
+                          size.quantity <= 0 ||
+                          (clickedCar && !clickedCar.size.includes(size.size))
+                            ? { pointerEvents: "none" }
+                            : { pointerEvents: "auto" }
+                        }
+                        className={`
                             ${
                               isClicked
                                 ? styles.size_item_clicked
                                 : styles.size_item
                             } ${
-                            size.quantity <= 0 ||
-                            (clickedCar && !clickedCar.size.includes(size.size))
-                              ? styles.disabled_size
-                              : ""
-                          }`}
-                          onClick={() => {
-                            toggleSize(
-                              size,
-                              setClickedSize,
-                              clickedSize,
-                              sizes,
-                              dispatch,
-                              setSize
-                            );
-                          }}
-                        >
-                          <Image
-                            alt="Size"
-                            src={isClicked ? PolygonBlue : PolygonWhite}
-                          />
-                          <p>
-                            {size.size}
-                            <sup>2</sup>
-                          </p>
-                        </div>
-                      );
-                    })}
-                  </div>
-                )
+                          size.quantity <= 0 ||
+                          (clickedCar && !clickedCar.size.includes(size.size))
+                            ? styles.disabled_size
+                            : ""
+                        }`}
+                        onClick={() => {
+                          toggleSize(
+                            size,
+                            setClickedSize,
+                            clickedSize,
+                            sizes,
+                            dispatch,
+                            setSize
+                          );
+                        }}
+                      >
+                        <Image
+                          alt="Size"
+                          src={isClicked ? PolygonBlue : PolygonWhite}
+                        />
+                        <p>
+                          {size.size}
+                          <sup>2</sup>
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
               ) : null}
             </div>
           </div>
@@ -307,85 +261,55 @@ const Calculator = () => {
         </div>
       </article>
       <div className={styles.termin_article}>
-        <p>Прохання оберіть термін зберігання</p>
+        <p>{t("calc_termin")}</p>
         <div className={styles.termin_block}>
           {termins && termins.length > 0 ? (
-            isMobile ? (
-              <select
-                onChange={(e) => {
-                  const selectedTermin = termins?.find(
-                    (termin) => termin === e.target.value
-                  );
-                  toggleTermin(
-                    e.target.value === "placeholder" ? null : selectedTermin,
-                    setClickedTermin,
-                    clickedTermin,
-                    dispatch,
-                    setTermin
-                  );
-                }}
-              >
-                <option selected value="placeholder">
-                  calc_termin_placeholder
-                </option>
-                {termins.map((termin) => (
-                  <option
+            <div className={styles.termin_row}>
+              {termins.map((termin) => {
+                const isClicked = termin === clickedTermin;
+                return (
+                  <div
                     key={termin}
-                    selected={termin === clickedTermin ? true : false}
-                    value={termin}
+                    className={
+                      isClicked
+                        ? styles.termin_item_clicked
+                        : styles.termin_item
+                    }
+                    onClick={() => {
+                      toggleTermin(
+                        termin,
+                        setClickedTermin,
+                        clickedTermin,
+                        dispatch,
+                        setTermin
+                      );
+                    }}
                   >
-                    {termin}
-                  </option>
-                ))}
-              </select>
-            ) : (
-              <div className={styles.termin_row}>
-                {termins.map((termin) => {
-                  const isClicked = termin === clickedTermin;
-                  return (
-                    <div
-                      key={termin}
-                      className={
-                        isClicked
-                          ? styles.termin_item_clicked
-                          : styles.termin_item
-                      }
-                      onClick={() => {
-                        toggleTermin(
-                          termin,
-                          setClickedTermin,
-                          clickedTermin,
-                          dispatch,
-                          setTermin
-                        );
-                      }}
-                    >
-                      <Image
-                        alt="Termin"
-                        src={isClicked ? PolygonBlue : PolygonWhite}
-                      />
-                      <p>{termin}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            )
+                    <Image
+                      alt="Termin"
+                      src={isClicked ? PolygonBlue : PolygonWhite}
+                    />
+                    <p>{termin}</p>
+                  </div>
+                );
+              })}
+            </div>
           ) : null}
         </div>
       </div>
       <div className={styles.button_block}>
         <div className={styles.price_row}>
-          <h3>Загальна вартість</h3>
+          <h3>{t("total_price")}</h3>
           <h3>
-            {totalPrice} <span>грн</span>
+            {totalPrice} <span>{t("uan")}</span>
           </h3>
         </div>
         <div className={styles.buttons_row}>
           <button onClick={() => handleButtonsClick("storage")}>
-            Замовити склад
+            {t("order_btn")}
           </button>
           <button onClick={() => handleButtonsClick("visit")}>
-            Записатись на екскурсію
+            {t("visit_btn")}
           </button>
         </div>
       </div>

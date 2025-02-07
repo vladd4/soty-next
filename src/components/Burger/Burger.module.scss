@@ -1,49 +1,38 @@
-@import "../../styles/variables";
+@use "../../styles/variables" as *;
 
 .root {
   width: 100%;
   display: grid;
   place-items: center;
-  background-color: $color-main;
+  background-color: $color-white;
   position: absolute;
   top: 100%;
-  z-index: 1000;
-  padding: 2% 0%;
+  z-index: 1002;
+  padding: 50px 0%;
+
   border-bottom: 1px solid $color-green;
-  transform: translateY(-150%);
+  transform: translateX(100%);
   transition: all 0.5s;
 
   .wrapper {
     width: 90%;
     display: grid;
     place-items: center;
-    h3 {
-      font-size: 17px;
-      text-transform: uppercase;
-    }
-    .lang_block {
+    row-gap: 15px;
+    z-index: 1002;
+    .language_block {
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      width: 75%;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: bold;
       gap: 5%;
-
+      z-index: 1001;
       p {
-        font-size: 14px;
-      }
-      .language_block {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-        gap: 5%;
-        p {
-          cursor: pointer;
-          transition: all 0.3s;
-          font-weight: 600;
-          &:hover {
-            color: $color-orange;
-          }
+        cursor: pointer;
+        transition: all 0.3s;
+        &:hover {
+          color: $color-orange;
         }
       }
     }
@@ -52,22 +41,46 @@
       place-items: flex-start;
       width: 75%;
       margin: 2% 0%;
-      a {
+      .phone_block {
         display: flex;
         align-items: center;
-        justify-content: flex-start;
-        gap: 2%;
-        width: 100%;
-        text-decoration: none;
-        color: $color-black;
+        justify-content: flex-end;
+        gap: 10px;
+        svg {
+          height: auto;
+          width: 12%;
+        }
+        .phone_inner {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+          row-gap: 5px;
+        }
+        a {
+          transition: all 0.3s;
+          font-size: 16px;
+          font-weight: 400;
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+    .language_block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: bold;
+      gap: 5%;
+      z-index: 1001;
+      p {
+        cursor: pointer;
         transition: all 0.3s;
         font-weight: 600;
-
         &:hover {
-          opacity: 0.6;
-        }
-        p {
-          font-size: 14px;
+          color: $color-orange;
         }
       }
     }
@@ -75,20 +88,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0%;
-      width: 75%;
-
+      gap: 3px;
       a {
-        width: 15%;
-        display: grid;
-        place-items: center;
-        img {
+        transition: all 0.3s;
+        width: 45%;
+        svg {
+          height: auto;
           width: 100%;
-          transition: all 0.3s;
-
-          &:hover {
-            transform: scale(1.1);
-          }
+        }
+        &:hover {
+          opacity: 0.7;
         }
       }
     }
@@ -97,4 +106,8 @@
 .current_lang {
   color: $color-orange;
   pointer-events: none;
+}
+
+.show_burger {
+  transform: translateX(0%);
 }

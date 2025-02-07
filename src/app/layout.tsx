@@ -1,4 +1,5 @@
 import "../styles/globals.scss";
+
 import { mont } from "@/fonts/fonts";
 import ReduxProvider from "@/providers/ReduxProvider";
 import TanStackProvider from "@/providers/TanStackProvider";
@@ -22,6 +23,8 @@ export const metadata: Metadata = {
     description:
       "Соти - це сучасний сервіс зберігання особистих речей та бізнес-майна.",
     title: "Соти | Твій міні склад",
+    type: "website",
+    siteName: "Соти | Твій міні склад ",
   },
 };
 

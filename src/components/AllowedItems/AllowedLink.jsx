@@ -1,7 +1,9 @@
 import Image from "next/image";
 import styles from "./Allowed.module.scss";
+import { useTranslation } from "react-i18next";
 
 const AllowedLink = ({ polygon, icon, label }) => {
+  const { t } = useTranslation();
   return (
     <div
       className={styles.container}
@@ -12,7 +14,7 @@ const AllowedLink = ({ polygon, icon, label }) => {
       <Image alt="Polygon" src={polygon} className={styles.polygon_parent} />
       <div className={styles.polygon_text}>
         <Image alt="Polygon" src={icon} />
-        <p>{label}</p>
+        <p>{t(label)}</p>
       </div>
     </div>
   );

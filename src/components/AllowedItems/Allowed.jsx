@@ -12,12 +12,14 @@ import Docs from "@/../public/allowed/documents-icon.svg";
 import Other from "@/../public/allowed/tools-icon.svg";
 
 import AllowedLink from "./AllowedLink";
+import { useTranslation } from "react-i18next";
 
 const Allowed = ({ polygon }) => {
+  const { t } = useTranslation();
   return (
     <section className={styles.root}>
       <article className={styles.wrapper}>
-        <h3>Дозволено</h3>
+        <h3>{t("all_item_H")}</h3>
         <article className={styles.image_block}>
           <article className={styles.article_one}>
             <AllowedLink label="ind_all_tech" icon={Toys} polygon={polygon} />

@@ -18,10 +18,16 @@
     width: 90%;
     z-index: 1001;
     .logo {
-      pointer-events: none;
+      // pointer-events: none;
       z-index: 1001;
       width: 12%;
       height: auto;
+      cursor: pointer;
+      transition: all 0.3s;
+      &:hover {
+        opacity: 0.7;
+        transform: scale(1);
+      }
     }
     img {
       width: 9%;
@@ -76,22 +82,7 @@
         width: 13%;
         margin-bottom: 1%;
       }
-      .language_block {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 15px;
-        font-weight: bold;
-        gap: 5%;
-        z-index: 1001;
-        p {
-          cursor: pointer;
-          transition: all 0.3s;
-          &:hover {
-            color: $color-orange;
-          }
-        }
-      }
+
       .social_block {
         display: flex;
         align-items: center;
@@ -117,10 +108,7 @@
     }
   }
 }
-.current_lang {
-  color: $color-orange;
-  pointer-events: none;
-}
+
 .transformed {
   transform: rotate(45deg) !important;
 }

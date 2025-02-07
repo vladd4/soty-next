@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./Benefits.module.scss";
+import { useTranslation } from "react-i18next";
 
 const TwoPolygons = ({
   polygon,
@@ -7,6 +8,7 @@ const TwoPolygons = ({
   icons,
   labels,
 }) => {
+  const { t } = useTranslation();
   return (
     <div className={styles.two_polygon}>
       <div
@@ -18,7 +20,7 @@ const TwoPolygons = ({
         <Image alt="Polygon" src={polygon} />
         <div className={styles.polygon_text}>
           <Image alt="Icon" src={icons[0]} />
-          <p>{labels[0]}</p>
+          <p>{t(labels[0])}</p>
         </div>
       </div>
 
@@ -31,7 +33,7 @@ const TwoPolygons = ({
         <Image alt="Polygon" src={polygon} />
         <div className={styles.polygon_text}>
           <Image alt="Icon" src={icons[1]} />
-          <p>{labels[1]}</p>
+          <p>{t(labels[1])}</p>
         </div>
       </div>
     </div>

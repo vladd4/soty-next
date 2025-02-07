@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./Benefits.module.scss";
+import { useTranslation } from "react-i18next";
 
 const OnePolygon = ({
   handleHover,
@@ -8,6 +9,8 @@ const OnePolygon = ({
   icon,
   label,
 }) => {
+  const { t } = useTranslation();
+
   return (
     <div
       className={styles.one_polygon}
@@ -20,7 +23,7 @@ const OnePolygon = ({
       <Image alt="Polygon" src={polygon} />
       <div className={styles.polygon_text}>
         <Image alt="Icon" src={icon} />
-        <p>{label}</p>
+        <p>{t(label)}</p>
       </div>
     </div>
   );

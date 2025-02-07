@@ -34,7 +34,7 @@ const useResize = (
           }
         }
       } else if (calc !== null) {
-        if (windowWidth <= 750) {
+        if (windowWidth <= 1000) {
           setMobile(true);
         } else {
           setMobile(false);

@@ -2,8 +2,10 @@ import Image from "next/image";
 import styles from "./Forbidden.module.scss";
 
 import Polygon from "@/../public/poly-grey.svg";
+import { useTranslation } from "react-i18next";
 
 const ItemsContainer = ({ image, title }) => {
+  const { t } = useTranslation();
   return (
     <div
       className={styles.container}
@@ -14,7 +16,7 @@ const ItemsContainer = ({ image, title }) => {
       <Image alt="Polygon" src={Polygon} className={styles.polygon_parent} />
       <div className={styles.polygon_text}>
         <Image alt="Polygon" src={image} />
-        <p>{title}</p>
+        <p>{t(title)}</p>
       </div>
     </div>
   );

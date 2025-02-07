@@ -3,35 +3,40 @@
 import styles from "./Header.module.scss";
 
 import Logo from "@/../public/logo.png";
-import Hamburger from "@/../public/hamburger.svg";
 
 import { Phone, MapPin, Facebook, Instagram, Menu } from "lucide-react";
 
 import { useState } from "react";
 
+import Burger from "@/components/Burger/Burger";
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+
+import { useTranslation } from "react-i18next";
 
 export default function Header() {
   const [clicked, setClicked] = useState(false);
 
+  const { t, i18n } = useTranslation();
+
+  const router = useRouter();
+
   const handleClick = () => {
-    setClicked(!clicked);
+    setClicked((prev) => !prev);
   };
 
   return (
     <header className={styles.root}>
       <article className={styles.wrapper}>
-        <Image alt="Logo" src={Logo} className={styles.logo} />
+        <Image
+          alt="Logo"
+          src={Logo}
+          className={styles.logo}
+          onClick={() => router.push("/")}
+        />
         <div className={styles.text_block}>
-          <Image
-            alt="Hamburger"
-            id="burger-icon"
-            src={Hamburger}
-            className={`${styles.hamburger} ${
-              clicked ? styles.transformed : ""
-            }`}
-            onClick={handleClick}
-          />
           <div className={styles.phone_block}>
             <Phone color="#faba19" strokeWidth="1.5" size={35} />
             <div className={styles.phone_inner}>
@@ -46,7 +51,7 @@ export default function Header() {
               target="_blank"
               rel="noreferrer"
             >
-              Львів, вул. Зелена, 301
+              {t("location")}
             </a>
           </div>
 
@@ -66,21 +71,17 @@ export default function Header() {
               <Instagram color="#faba19" strokeWidth="1.5" size={40} />
             </a>
           </div>
-          <div className={styles.language_block}>
-            <p
-              id="ua"
-              className={styles.current_lang}
-              // onClick={() => changeLanguage("ua")}
-            >
-              UA
-            </p>
-            <span>|</span>
-            <p id="en">EN</p>
-          </div>
+          <LanguageSwitcher />
         </div>
-        <Menu strokeWidth="2" size={40} className={styles.menu} />
+        <Menu
+          strokeWidth="2"
+          size={40}
+          className={styles.menu}
+          id="burger-icon"
+          onClick={handleClick}
+        />
       </article>
-      {/* <Burger clicked={clicked} setClicked={setClicked} /> */}
+      <Burger clicked={clicked} setClicked={setClicked} t={t} i18n={i18n} />
     </header>
   );
 }

@@ -1,13 +1,15 @@
 "use client";
 
+import { useTranslation } from "react-i18next";
 import styles from "./Footer.module.scss";
 
 import { Phone, MapPin, Facebook, Instagram } from "lucide-react";
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer className={styles.root}>
-      <h5>Графік роботи</h5>
+      <h5>{t("footer_graph_h_1")}</h5>
       <section
         className={styles.wrapper}
         data-aos="zoom-in"
@@ -16,12 +18,12 @@ const Footer = () => {
       >
         <article className={styles.info}>
           <div className={styles.info_div}>
-            <h5>Склад</h5>
-            <p>ПН - НД 9:00 до 21:00</p>
+            <h5>{t("footer_sklad")}</h5>
+            <p>{t("footer_graph_p_1")}</p>
           </div>
           <div className={styles.info_div}>
-            <h5>Офіс</h5>
-            <p>ПН - ПТ 10:00 до 18:00</p>
+            <h5>{t("footer_office")}</h5>
+            <p>{t("footer_graph_p_2")}</p>
           </div>
           <div className={styles.phone_block}>
             <Phone color="#faba19" strokeWidth="1.5" size={35} />
@@ -37,7 +39,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
             >
-              Львів, вул. Зелена, 301
+              {t("location")}
             </a>
           </div>
           <div className={styles.social_block}>
@@ -71,7 +73,7 @@ const Footer = () => {
         data-aos-duration="1500"
         className={styles.copy}
       >
-        © Соти - твій міні склад, 2024
+        {t("footer_copy")}
       </p>
     </footer>
   );

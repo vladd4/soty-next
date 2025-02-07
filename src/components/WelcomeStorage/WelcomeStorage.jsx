@@ -4,18 +4,22 @@ import styles from "./WelcomeStorage.module.scss";
 
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
-import Background from "@/../public/main.jpg";
+import Background from "@/../public/main-min.webp";
+import { useTranslation } from "react-i18next";
 
 const WelcomeStorage = () => {
+  const { t } = useTranslation();
+
   return (
     <section
       className={styles.root}
       style={{ backgroundImage: `url(${Background.src})` }}
     >
       <article className={styles.wrapper}>
-        <h1>Міні склади для ваших речей</h1>
+        <h1>{t("welcome_h")}</h1>
         <p>
-          Доступні склади розміром від 1м<sup>3</sup>
+          {t("welcome_p")}
+          <sup>3</sup>
         </p>
         <AnchorLink
           href="#calculator"
@@ -24,7 +28,7 @@ const WelcomeStorage = () => {
           data-aos-duration="2500"
           className={styles.button}
         >
-          Переглянути ціни
+          {t("welcome_btn")}
         </AnchorLink>
       </article>
     </section>

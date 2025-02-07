@@ -4,14 +4,16 @@ import styles from "./Benefits.module.scss";
 import Polygon from "@/../public/polygon-ben-orange.svg";
 
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
-const MobileBlock = ({ t }) => {
+const MobileBlock = () => {
+  const { t } = useTranslation();
   return (
     <article className={styles.mobile_block}>
       {icons.map((icon) => {
         return (
           <div
-            key={icon}
+            key={icon.text}
             className={styles.mobile_one_polygon}
             data-aos="zoom-in"
             data-aos-offset="0"
@@ -24,7 +26,7 @@ const MobileBlock = ({ t }) => {
             />
             <div className={styles.mobile_polygon_text}>
               <Image alt="Icon" src={icon.icon} />
-              <p>{icon.text}</p>
+              <p>{t(icon.text)}</p>
             </div>
           </div>
         );

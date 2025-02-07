@@ -10,12 +10,14 @@ import Smell from "@/../public/prohibited/scent-icon.svg";
 import Other from "@/../public/prohibited/animal-icon.svg";
 
 import ItemsContainer from "./ItemsContainer";
+import { useTranslation } from "react-i18next";
 
 const Forbidden = () => {
+  const { t } = useTranslation();
   return (
     <section className={styles.root}>
       <article className={styles.wrapper}>
-        <h3>Заборонено</h3>
+        <h3>{t("fob_item_H")}</h3>
         <article className={styles.image_block}>
           <article className={styles.article_three}>
             <ItemsContainer image={Prod} title="ind_fob_prod" />

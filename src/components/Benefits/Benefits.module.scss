@@ -37,7 +37,7 @@
         place-items: center;
         position: relative;
         .mobile_polygon {
-          width: 85%;
+          width: 65%;
           height: auto;
         }
 
@@ -50,14 +50,14 @@
           left: 50%;
           transform: translate(-50%, -50%);
           img {
-            width: 27%;
+            width: 17%;
             height: auto;
           }
           p {
             font-size: 14px;
             text-align: center;
             text-wrap: balance;
-            max-width: 95%;
+            max-width: 45%;
           }
         }
       }
@@ -160,6 +160,23 @@
       p {
         font-size: 16px;
         max-width: 90%;
+      }
+      .mobile_block {
+        .mobile_one_polygon {
+          .mobile_polygon {
+            width: 100%;
+          }
+          .mobile_polygon_text {
+            img {
+              width: 25%;
+              margin-bottom: 10px;
+            }
+            p {
+              font-size: 12px;
+              max-width: 65%;
+            }
+          }
+        }
       }
     }
   }
