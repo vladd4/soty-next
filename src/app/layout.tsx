@@ -9,7 +9,7 @@ import { Metadata } from "next";
 import { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Соти | Твій міні склад",
+  title: "Соти | Ваш міні склад",
   description:
     "Соти - це сучасний сервіс зберігання особистих речей та бізнес-майна.",
   alternates: {
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   openGraph: {
     description:
       "Соти - це сучасний сервіс зберігання особистих речей та бізнес-майна.",
-    title: "Соти | Твій міні склад",
+    title: "Соти | Ваш міні склад",
     type: "website",
-    siteName: "Соти | Твій міні склад ",
+    siteName: "Соти | Ваш міні склад ",
   },
 };
 

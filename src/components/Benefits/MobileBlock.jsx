@@ -1,7 +1,7 @@
 import { icons } from "@/static_store/benefit_icons";
 import styles from "./Benefits.module.scss";
 
-import Polygon from "@/../public/polygon-ben-orange.svg";
+import Polygon from "@/../public/polygon-ben-yellow.svg";
 
 import Image from "next/image";
 import { useTranslation } from "react-i18next";

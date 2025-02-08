@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./Forbidden.module.scss";
 
-import Polygon from "@/../public/poly-grey.svg";
+import Polygon from "@/../public/Vector-1.svg";
 import { useTranslation } from "react-i18next";
 
 const ItemsContainer = ({ image, title }) => {

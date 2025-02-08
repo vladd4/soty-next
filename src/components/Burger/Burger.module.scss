@@ -32,7 +32,7 @@
         cursor: pointer;
         transition: all 0.3s;
         &:hover {
-          color: $color-orange;
+          color: $color-yellow;
         }
       }
     }
@@ -67,6 +67,20 @@
         }
       }
     }
+    .links {
+      display: grid;
+      place-items: center;
+      row-gap: 15px;
+      margin-bottom: 4%;
+
+      a {
+        cursor: pointer;
+        transition: all 0.3s;
+        &:hover {
+          color: $color-yellow;
+        }
+      }
+    }
     .language_block {
       display: flex;
       align-items: center;
@@ -80,7 +94,7 @@
         transition: all 0.3s;
         font-weight: 600;
         &:hover {
-          color: $color-orange;
+          color: $color-yellow;
         }
       }
     }
@@ -104,7 +118,7 @@
   }
 }
 .current_lang {
-  color: $color-orange;
+  color: $color-yellow;
   pointer-events: none;
 }
 

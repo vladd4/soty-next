@@ -16,6 +16,14 @@
     font-size: 20px;
     max-width: 70%;
     margin-bottom: 1.5%;
+    a {
+      color: $color-yellow;
+      cursor: pointer;
+      transition: all 0.3s;
+      &:hover {
+        color: $color-orange;
+      }
+    }
   }
   .slider_block {
     width: 100%;

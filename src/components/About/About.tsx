@@ -3,12 +3,21 @@ import Slider from "../Slider/Slider";
 import styles from "./About.module.scss";
 
 export default function About() {
-  const { t } = useTranslation();
+  const { t } = useTranslation<"translation">();
   return (
-    <article className={styles.root}>
+    <article className={styles.root} id="about">
       <h3>{t("about_h")}</h3>
       <p>{t("about_p_1")}</p>
-      <p>{t("about_p_2")}</p>
+      <p>
+        {t("about_p_2")} {t("public_a")}{" "}
+        <a
+          href="https://docs.google.com/document/d/1CUcEp5vyPVeNSXUfGjDp2ew_V31RybuT04vuxdy5kFk/edit?tab=t.0"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {t("public_href")}.
+        </a>
+      </p>
       <div className={styles.slider_block}>
         <Slider />
       </div>

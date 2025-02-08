@@ -13,6 +13,7 @@
   justify-content: center;
   gap: 15px;
   margin-top: 1.2%;
+  width: 7%;
   img {
     cursor: pointer;
 
@@ -25,21 +26,18 @@
   }
   .prev {
     transform: rotateZ(180deg);
-    width: 35%;
+    width: 100%;
   }
   .next {
-    width: 35%;
+    width: 100%;
   }
 }
 @media screen and (max-width: 750px) {
   .slider {
     width: 100% !important;
   }
-  .prev {
-    width: 27% !important;
-  }
-  .next {
-    width: 27% !important;
+  .arrows {
+    width: 14% !important;
   }
 }
 @media screen and (min-width: 1550px) {

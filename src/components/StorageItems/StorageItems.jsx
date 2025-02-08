@@ -5,7 +5,7 @@ import Forbidden from "../ForbiddenItems/Forbidden";
 
 const StorageItems = ({ polygon }) => {
   return (
-    <section className={styles.root}>
+    <section className={styles.root} id="rules">
       <article className={styles.wrapper}>
         <Allowed polygon={polygon} />
         <Forbidden />

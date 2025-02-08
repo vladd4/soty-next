@@ -5,6 +5,9 @@ import styles from "./Burger.module.scss";
 import { useRef, useEffect } from "react";
 
 import { Facebook, Instagram, MapPin, Phone } from "lucide-react";
+import { burger_links } from "@/static_store/burger_links";
+
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const Burger = ({ clicked, setClicked, i18n, t }) => {
   const componentRef = useRef(null);
@@ -56,6 +59,19 @@ const Burger = ({ clicked, setClicked, i18n, t }) => {
               {t("location")}
             </a>
           </div>
+        </div>
+        <div className={styles.links}>
+          {burger_links.map((link) => {
+            return (
+              <AnchorLink
+                key={link.link}
+                href={link.link}
+                onClick={() => setClicked(false)}
+              >
+                {t(link.label)}
+              </AnchorLink>
+            );
+          })}
         </div>
         <div className={styles.social_block}>
           <a

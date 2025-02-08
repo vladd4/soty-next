@@ -16,9 +16,7 @@ export async function sendFormToTelegram(message) {
       }),
     });
     if (response.ok) {
-      toast.success(
-        "Форма успішно відправлена. Менеджер скоро зв'яжеться з вами!"
-      );
+      toast.success("Дякуємо за запит! Очікуйте дзвінка нашого менеджера!");
     } else {
       toast.error("Щось пішло не так. Спробуйте пізніше!");
       throw new Error("Failed to submit form");

@@ -12,13 +12,13 @@
     cursor: pointer;
     transition: all 0.3s;
     &:hover {
-      color: $color-orange;
+      color: $color-yellow;
     }
   }
 }
 
 .current_lang {
-  color: $color-orange;
+  color: $color-yellow;
   pointer-events: none;
 }
 
