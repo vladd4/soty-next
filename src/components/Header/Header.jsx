@@ -73,6 +73,7 @@ export default function Header() {
           </div>
           <LanguageSwitcher />
         </div>
+        <a className={styles.burger_phone} href="tel:+380969562020">+38 096 956 20 20</a>
         <Menu
           strokeWidth="2"
           size={40}
