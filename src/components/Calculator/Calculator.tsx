@@ -298,11 +298,11 @@ const Calculator = () => {
               : ""
           }`}
         >
-          <h3>СПЕЦПРОПОЗИЦІЯ</h3>
+          <h3>{t("offer_h")}</h3>
           {hoveredTermin === "6 міс" ? (
-            <p>від 6 місяців даруємо знижку 5% </p>
+            <p dangerouslySetInnerHTML={{ __html: t("offer_1") }}></p>
           ) : (
-            <p>від 12 місяців даруємо знижку 10% </p>
+            <p dangerouslySetInnerHTML={{ __html: t("offer_2") }}></p>
           )}
         </div>
         <p>{t("calc_termin")}</p>
