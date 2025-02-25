@@ -8,13 +8,25 @@ export const toggleSize = (
 ) => {
   if (car !== null) {
     if (car.price) {
-      setClickedSize(car === clickedSize ? null : car);
+      setClickedSize(
+        car === clickedSize?.size?.replace("куб", "").replace("кв", "").trim()
+          ? null
+          : car
+      );
     } else {
       setClickedSize(
         car.size.some((carSize) =>
-          sizes.some((size) => size.size === carSize && size.quantity >= 0)
+          sizes.some(
+            (size) =>
+              size.size?.replace("куб", "").replace("кв", "").trim() ===
+                carSize && size.quantity >= 0
+          )
         )
-          ? sizes.find((size) => car.size.includes(size.size))
+          ? sizes.find((size) =>
+              car.size.includes(
+                size.size?.replace("куб", "").replace("кв", "").trim()
+              )
+            )
           : null
       );
     }

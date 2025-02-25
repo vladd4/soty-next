@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import Slider from "../Slider/Slider";
 import styles from "./About.module.scss";
+import Propositions from "../Propositions/Propositions";
 
 export default function About() {
   const { t } = useTranslation<"translation">();
@@ -18,6 +19,7 @@ export default function About() {
           {t("public_href")}.
         </a>
       </p>
+      <Propositions />
       <div className={styles.slider_block}>
         <Slider />
       </div>

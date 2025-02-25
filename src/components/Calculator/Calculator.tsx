@@ -51,13 +51,25 @@ const cars = [
   },
 ];
 
+function defineUnit(value: string): string {
+  if (value.includes("м куб")) {
+    return value.replace("куб", "").trim() + " <sup>3</sup>";
+  } else if (value.includes("м кв")) {
+    return value.replace("кв", "").trim() + " <sup>2</sup>";
+  } else {
+    return value;
+  }
+}
+
 const Calculator = () => {
   const dispatch = useAppDispatch();
 
-  const { t } = useTranslation();
+  const { t } = useTranslation<"translation">();
 
   const termins = useAppSelector((state) => state.calculator.terminIndividual);
   const sizes = useAppSelector((state) => state.calculator.sizesIndividual);
+
+  const [hoveredTermin, setHoveredTermin] = useState<string | null>(null);
 
   const [totalPrice, setTotalPrice] = useState(0);
   const [clickedSize, setClickedSize] = useState(
@@ -75,7 +87,12 @@ const Calculator = () => {
   const getIconUrl = () => {
     let src;
 
-    switch (clickedSize?.size) {
+    const clearSize = clickedSize?.size
+      .replace("куб", "")
+      .replace("кв", "")
+      .trim();
+
+    switch (clearSize) {
       case "8 м":
       case "8.5 м":
       case "7 м":
@@ -205,14 +222,20 @@ const Calculator = () => {
               />
               {sizes && sizes.length > 0 ? (
                 <div className={styles.size_row}>
-                  {sizes.map((size) => {
+                  {sizes.map((size, key) => {
                     const isClicked = size.size === clickedSize?.size;
                     return (
                       <div
-                        key={size.price}
+                        key={key}
                         style={
                           size.quantity <= 0 ||
-                          (clickedCar && !clickedCar.size.includes(size.size))
+                          (clickedCar &&
+                            !clickedCar?.size.includes(
+                              size?.size
+                                ?.replace("куб", "")
+                                .replace("кв", "")
+                                .trim()
+                            ))
                             ? { pointerEvents: "none" }
                             : { pointerEvents: "auto" }
                         }
@@ -223,7 +246,13 @@ const Calculator = () => {
                                 : styles.size_item
                             } ${
                           size.quantity <= 0 ||
-                          (clickedCar && !clickedCar.size.includes(size.size))
+                          (clickedCar &&
+                            !clickedCar?.size.includes(
+                              size.size
+                                ?.replace("куб", "")
+                                .replace("кв", "")
+                                .trim()
+                            ))
                             ? styles.disabled_size
                             : ""
                         }`}
@@ -242,10 +271,11 @@ const Calculator = () => {
                           alt="Size"
                           src={isClicked ? PolygonBlue : PolygonWhite}
                         />
-                        <p>
-                          {size.size}
-                          <sup>2</sup>
-                        </p>
+                        <p
+                          dangerouslySetInnerHTML={{
+                            __html: defineUnit(size.size),
+                          }}
+                        />
                       </div>
                     );
                   })}
@@ -261,15 +291,29 @@ const Calculator = () => {
         </div>
       </article>
       <div className={styles.termin_article}>
+        <div
+          className={`${styles.modal_proposition} ${
+            hoveredTermin === "6 міс" || hoveredTermin === "12+ міс"
+              ? styles.show_info
+              : ""
+          }`}
+        >
+          <h3>СПЕЦПРОПОЗИЦІЯ</h3>
+          {hoveredTermin === "6 міс" ? (
+            <p>від 6 місяців даруємо знижку 5% </p>
+          ) : (
+            <p>від 12 місяців даруємо знижку 10% </p>
+          )}
+        </div>
         <p>{t("calc_termin")}</p>
         <div className={styles.termin_block}>
           {termins && termins.length > 0 ? (
             <div className={styles.termin_row}>
-              {termins.map((termin) => {
+              {termins.map((termin, key) => {
                 const isClicked = termin === clickedTermin;
                 return (
                   <div
-                    key={termin}
+                    key={key}
                     className={
                       isClicked
                         ? styles.termin_item_clicked
@@ -284,6 +328,8 @@ const Calculator = () => {
                         setTermin
                       );
                     }}
+                    onMouseEnter={() => setHoveredTermin(termin)}
+                    onMouseLeave={() => setHoveredTermin(null)}
                   >
                     <Image
                       alt="Termin"
