@@ -40,7 +40,7 @@ const Modal = () => {
     }
     let string;
     !isVisit
-      ? (string = `Проект: Соти \nІм'я: ${name} \nНомер телефону: ${tel} \nE-mail: ${post} \nРозмір: ${size.size}^2  \nТермін: ${termin} \nЦіна: ${price} грн\n`)
+      ? (string = `Проект: Соти \nІм'я: ${name} \nНомер телефону: ${tel} \nE-mail: ${post} \nРозмір: ${size.size}  \nТермін: ${termin} \nЦіна: ${price} грн\n`)
       : (string = `Проект: Соти \nІм'я: ${name} \nНомер телефону: ${tel} \nE-mail: ${post} \n`);
     sendFormToTelegram(string);
     setName("");
