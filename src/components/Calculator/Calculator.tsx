@@ -306,13 +306,16 @@ const Calculator = () => {
       <div className={styles.termin_article}>
         <div
           className={`${styles.modal_proposition} ${
-            hoveredTermin === "6 міс" || hoveredTermin === "12+ міс"
+            hoveredTermin === "6 міс" ||
+            hoveredTermin === "12+ міс" ||
+            clickedTermin === "6 міс" ||
+            clickedTermin === "12+ міс"
               ? styles.show_info
               : ""
           }`}
         >
           <h3>{t("offer_h")}</h3>
-          {hoveredTermin === "6 міс" ? (
+          {hoveredTermin === "6 міс" || clickedTermin === "6 міс" ? (
             <p dangerouslySetInnerHTML={{ __html: t("offer_1") }}></p>
           ) : (
             <p dangerouslySetInnerHTML={{ __html: t("offer_2") }}></p>

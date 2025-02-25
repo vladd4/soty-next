@@ -270,6 +270,7 @@
       transition: all 0.3s ease;
       opacity: 0;
       pointer-events: none;
+      z-index: 1005;
       h3 {
         font-size: 23px;
         opacity: 0;
@@ -530,7 +531,14 @@
       max-width: 100%;
     }
     .modal_proposition {
-      display: none !important;
+      width: 95% !important;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -45%;
+      h3 {
+        width: 100% !important;
+        text-align: center !important;
+      }
     }
   }
   .button_block {
