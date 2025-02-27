@@ -7,6 +7,7 @@ import { Toaster } from "react-hot-toast";
 import Fancybox from "@/components/FancyBox";
 import { Metadata } from "next";
 import { ReactNode } from "react";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Соти | Ваш міні склад",
@@ -29,7 +30,6 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  // const messages = useMessages();
   return (
     <html lang="uk">
       <head>
@@ -38,9 +38,32 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
         <meta property="author" content="vladdonets" />
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-WLZX2XHD');
+          `,
+          }}
+        />
       </head>
       <body className={`${mont.className}`}>
-        {/* <NextIntlClientProvider messages={messages}> */}
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-WLZX2XHD"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
+        {/* End Google Tag Manager (noscript) */}
+
         <ReduxProvider>
           <TanStackProvider>
             <Fancybox
@@ -63,7 +86,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </Fancybox>
           </TanStackProvider>
         </ReduxProvider>
-        {/* </NextIntlClientProvider> */}
       </body>
     </html>
   );
