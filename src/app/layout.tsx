@@ -86,6 +86,22 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </Fancybox>
           </TanStackProvider>
         </ReduxProvider>
+        <Script
+          id="binotel-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+            (function(d, w, s) {
+              var widgetHash = '8gkqz1d7dlgoc63iipre', gcw = d.createElement(s); 
+              gcw.type = 'text/javascript'; 
+              gcw.async = true;
+              gcw.src = '//widgets.binotel.com/getcall/widgets/'+ widgetHash +'.js';
+              var sn = d.getElementsByTagName(s)[0]; 
+              sn.parentNode.insertBefore(gcw, sn);
+            })(document, window, 'script');
+          `,
+          }}
+        />
       </body>
     </html>
   );
