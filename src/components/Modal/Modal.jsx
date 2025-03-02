@@ -35,14 +35,21 @@ const Modal = () => {
   const handleClick = (e) => {
     e.preventDefault();
     if (name.trim() === "" || tel.trim() === "") {
-      toast.error("Заповніть, будь-ласка, необхідні поля!");
+      toast.error(t("form_number_error_msg"));
       return;
     }
-    let string;
-    !isVisit
-      ? (string = `Проект: Соти \nІм'я: ${name} \nНомер телефону: ${tel} \nE-mail: ${post} \nРозмір: ${size.size}  \nТермін: ${termin} \nЦіна: ${price} грн\n`)
-      : (string = `Проект: Соти \nІм'я: ${name} \nНомер телефону: ${tel} \nE-mail: ${post} \n`);
-    sendFormToTelegram(string);
+    if (isVisit) {
+      let string = `Проект: Соти \nІм'я: ${name} \nНомер телефону: ${tel} \nE-mail: ${post} \n`;
+      sendFormToTelegram(string, t);
+    } else {
+      if (!size || !termin) {
+        toast.error(t("form_size_error_msg"));
+        return;
+      }
+      let string = `Проект: Соти \nІм'я: ${name} \nНомер телефону: ${tel} \nE-mail: ${post} \nРозмір: ${size.size}  \nТермін: ${termin} \nЦіна: ${price} грн\n`;
+      sendFormToTelegram(string, t);
+    }
+
     setName("");
     setTel("");
     setPost("");

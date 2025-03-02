@@ -1,6 +1,6 @@
 import toast from "react-hot-toast";
 
-export async function sendFormToTelegram(message) {
+export async function sendFormToTelegram(message, t) {
   const botToken = process.env.NEXT_PUBLIC_BOT_TOKEN;
   const chatId = process.env.NEXT_PUBLIC_CHAT_ID;
   const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
@@ -16,9 +16,9 @@ export async function sendFormToTelegram(message) {
       }),
     });
     if (response.ok) {
-      toast.success("Дякуємо за запит! Очікуйте дзвінка нашого менеджера!");
+      toast.success(t("form_success_msg"));
     } else {
-      toast.error("Щось пішло не так. Спробуйте пізніше!");
+      toast.error(t("form_error_msg"));
       throw new Error("Failed to submit form");
     }
   } catch (error) {

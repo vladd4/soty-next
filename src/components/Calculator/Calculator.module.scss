@@ -599,9 +599,15 @@
   }
   .button_block {
     margin-top: 2%;
-    h3 {
-      font-size: 30px !important;
+    div {
+      h3 {
+        font-size: 30px !important;
+        &:last-child {
+          text-align: end !important;
+        }
+      }
     }
+
     .buttons_row {
       flex-direction: column;
       row-gap: 10px !important;

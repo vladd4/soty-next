@@ -28,7 +28,7 @@
     "ind_fob_smell": "Substances with odor",
     "ind_fob_other": "Other",
     "welcome_h": "Mini Warehouses for Your Belongings",
-    "welcome_p": "Available warehouses from 1m in size",
+    "welcome_p": "Available warehouses from 1m",
     "welcome_btn": "View Prices",
     "benefits_h": "Our Advantages",
     "benefits_p": "We are operators of warehouse spaces of various sizes, as well as owners of buildings where these warehouses are located. Therefore, you don't need to worry about security, we have the experience and established infrastructure.",
@@ -64,6 +64,10 @@
     "public_href": "the link",
     "offer_h": "SPECIAL OFFERS",
     "offer_1": "from <b>6 months</b> we offer a <b>5%</b> discount",
-    "offer_2": "from <b>12 months</b> - a <b>10%</b> discount"
+    "offer_2": "from <b>12 months</b> - a <b>10%</b> discount",
+    "form_success_msg": "Thank you for your request! Please expect a call from our manager!",
+    "form_number_error_msg": "Please fill in your name and phone number!",
+    "form_size_error_msg": "Please specify your desired size and deadlines!",
+    "form_error_msg": "Something went wrong. Please try again later!"
   }
   
