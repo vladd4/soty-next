@@ -372,8 +372,33 @@
       justify-content: space-between;
       h3 {
         font-size: 35px;
-        span {
-          font-size: 15px;
+      }
+      .price_labels {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        h3 {
+          font-size: 35px;
+          position: relative;
+          span {
+            font-size: 15px;
+          }
+          .sale {
+            margin-left: 25px;
+            font-size: 35px;
+            span {
+              font-size: 15px;
+            }
+          }
+          .sale_line {
+            height: 2.5px;
+            width: 100%;
+            top: 50%;
+            left: 0;
+            position: absolute;
+            background-color: red;
+          }
         }
       }
     }
@@ -442,6 +467,29 @@
     }
   }
 }
+@media screen and (max-width: 1250px) {
+  .root {
+    p {
+      max-width: 80%;
+    }
+    .termin_article {
+      width: 80%;
+      .modal_proposition {
+        width: 300px;
+        right: -8%;
+      }
+    }
+    .button_block {
+      width: 80%;
+    }
+    .wrapper {
+      width: 80%;
+    }
+    .car_block {
+      width: 80%;
+    }
+  }
+}
 
 @media screen and (max-width: 1100px) {
   .root {
@@ -455,18 +503,8 @@
       font-size: 18px;
     }
   }
-  .car_block {
-    width: 75% !important;
-  }
-  .termin_article {
-    width: 75% !important;
-    .modal_proposition {
-      width: 300px !important;
-      right: -12% !important;
-    }
-  }
+
   .button_block {
-    width: 75% !important;
     h3 {
       font-size: 33px !important;
     }
@@ -602,6 +640,7 @@
     div {
       h3 {
         font-size: 30px !important;
+        width: auto !important;
         &:last-child {
           text-align: end !important;
         }
@@ -623,6 +662,25 @@
     width: 100%;
   }
 }
+
+@media screen and (max-width: 720px) {
+  .root {
+    .button_block {
+      .price_row {
+        flex-direction: column;
+        row-gap: 10px;
+        div {
+          h3 {
+            .sale_line {
+              height: 2px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 500px) {
   .car_block {
     margin-top: 3%;
@@ -685,11 +743,14 @@
   .button_block {
     padding: 3% !important;
     margin-bottom: 3%;
-    h3 {
-      font-size: 17px !important;
-      text-align: center;
-      width: fit-content !important;
+    div {
+      h3 {
+        font-size: 20px !important;
+        text-align: flex-start !important;
+        width: fit-content !important;
+      }
     }
+
     .buttons_row {
       row-gap: 5px !important;
       button {

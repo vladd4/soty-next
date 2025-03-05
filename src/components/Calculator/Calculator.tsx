@@ -64,6 +64,11 @@ const cars = [
   },
 ];
 
+const termin_sale = {
+  "6 міс": 0.05,
+  "12+ міс": 0.1,
+};
+
 function defineUnit(value: string): string {
   if (value.includes("м куб")) {
     return value.replace("куб", "").trim() + " <sup>3</sup>";
@@ -154,7 +159,14 @@ const Calculator = () => {
 
     if (type === "storage") {
       dispatch(setIsVisit(false));
-      dispatch(setPrice(totalPrice));
+      if (clickedTermin === "12+ міс" || clickedTermin === "6 міс") {
+        dispatch(
+          setPrice(totalPrice - totalPrice * termin_sale[clickedTermin])
+        );
+      } else {
+        dispatch(setPrice(totalPrice));
+      }
+
       dispatch(setSize(clickedSize));
       dispatch(setTermin(clickedTermin));
     } else {
@@ -362,9 +374,24 @@ const Calculator = () => {
       <div className={styles.button_block}>
         <div className={styles.price_row}>
           <h3>{t("total_price")}</h3>
-          <h3>
-            {totalPrice} <span>{t("uan")}</span>
-          </h3>
+          {clickedTermin === "12+ міс" || clickedTermin === "6 міс" ? (
+            <div className={styles.price_labels}>
+              <h3>
+                {totalPrice} <span>{t("uan")}</span>
+                <span className={styles.sale_line} />
+              </h3>
+              <h3>
+                {totalPrice - totalPrice * termin_sale[clickedTermin]}{" "}
+                <span>{t("uan")}</span>
+              </h3>
+            </div>
+          ) : (
+            <div className={styles.price_labels}>
+              <h3>
+                {totalPrice} <span>{t("uan")}</span>
+              </h3>
+            </div>
+          )}
         </div>
         <div className={styles.buttons_row}>
           <button onClick={() => handleButtonsClick("storage")}>

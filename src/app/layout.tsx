@@ -34,6 +34,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="uk">
       <head>
         <meta
+          name="google-site-verification"
+          content="5P6su6d3XkVpd_Tfh3kpj8j_70JKF91efJ1TgEZ-A0c"
+        />
+        <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
