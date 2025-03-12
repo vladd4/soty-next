@@ -64,7 +64,7 @@ export default function Header() {
               <Facebook color="#faba19" strokeWidth="1.5" size={40} />
             </a>
             <a
-              href="https://www.instagram.com/soty_tviy_mini_sklad/"
+              href="https://www.instagram.com/soty_vash_mini_sklad?igsh=bW5pZWl4ZjJnOWhw&utm_source=qr"
               target="_blank"
               rel="noreferrer"
             >
@@ -73,7 +73,9 @@ export default function Header() {
           </div>
           <LanguageSwitcher />
         </div>
-        <a className={styles.burger_phone} href="tel:+380969562020">+38 096 956 20 20</a>
+        <a className={styles.burger_phone} href="tel:+380969562020">
+          +38 096 956 20 20
+        </a>
         <Menu
           strokeWidth="2"
           size={40}

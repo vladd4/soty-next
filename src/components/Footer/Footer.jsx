@@ -51,7 +51,7 @@ const Footer = () => {
               <Facebook color="#faba19" strokeWidth="1.5" size={40} />
             </a>
             <a
-              href="https://www.instagram.com/soty_tviy_mini_sklad/"
+              href="https://www.instagram.com/soty_vash_mini_sklad?igsh=bW5pZWl4ZjJnOWhw&utm_source=qr"
               target="_blank"
               rel="noreferrer"
             >
