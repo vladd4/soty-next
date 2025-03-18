@@ -60,11 +60,11 @@ const Footer = () => {
           </div>
         </article>
         <iframe
-          title="google map"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1082.7887874213225!2d24.07206766473281!3d49.79884647018445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473ae81672a01b9b%3A0x3d34454888495b9c!2z0LLRg9C70LjRhtGPINCX0LXQu9C10L3QsCwgMzAxLCDQm9GM0LLRltCyLCDQm9GM0LLRltCy0YHRjNC60LAg0L7QsdC70LDRgdGC0YwsIDc5MDAw!5e0!3m2!1suk!2sua!4v1699437551326!5m2!1suk!2sua"
-          className={styles.map}
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.8673360086386!2d24.0791154!3d49.798598399999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473ae903dfa5f19b%3A0xe3e6fded702d7a4!2z0JzRltC90ZYg0YHQutC70LDQtNC4INCh0J7QotCY!5e1!3m2!1suk!2sua!4v1742280402138!5m2!1suk!2sua"
           allowFullScreen=""
           loading="lazy"
+          className={styles.map}
+          referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </section>
       <p
