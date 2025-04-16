@@ -8,7 +8,7 @@ import Right from "@/../public/right.svg";
 import { useTranslation } from "react-i18next";
 
 export default function Propositions() {
-  const { t } = useTranslation<"transaltion">();
+  const { t } = useTranslation<"translation">();
   return (
     <div className={styles.root}>
       <Image alt="Left Polygon" src={Left} className={styles.left} />
@@ -23,6 +23,10 @@ export default function Propositions() {
           <div>
             <Image alt="Point" src={Polygon} width={30} height={30} />
             <p dangerouslySetInnerHTML={{ __html: t("offer_2") }}></p>
+          </div>
+          <div>
+            <Image alt="Point" src={Polygon} width={30} height={30} />
+            <p dangerouslySetInnerHTML={{ __html: t("offer_3") }}></p>
           </div>
         </div>
       </div>

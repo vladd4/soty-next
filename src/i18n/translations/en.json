@@ -65,6 +65,7 @@
     "offer_h": "SPECIAL OFFERS",
     "offer_1": "from <b>6 months</b> we offer a <b>5%</b> discount",
     "offer_2": "from <b>12 months</b> - a <b>10%</b> discount",
+    "offer_3": "from <b>15 months</b> an additional bonus of <b>-50%</b> for the first month",
     "form_success_msg": "Thank you for your request! Please expect a call from our manager!",
     "form_number_error_msg": "Please fill in your name and phone number!",
     "form_size_error_msg": "Please specify your desired size and deadlines!",

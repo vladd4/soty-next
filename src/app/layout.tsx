@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import "../styles/globals.scss";
 
 import { mont } from "@/fonts/fonts";
@@ -8,7 +9,6 @@ import Fancybox from "@/components/FancyBox";
 import { Metadata } from "next";
 import { ReactNode } from "react";
 import Script from "next/script";
-import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Соти | Ваш міні склад",
@@ -74,7 +74,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           }}
         />
         <noscript>
-          <Image
+          <img
             height="1"
             width="1"
             style={{ display: "none" }}
