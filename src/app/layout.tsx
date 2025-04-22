@@ -42,7 +42,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
-        <meta property="author" content="vladdonets" />
+        {/* <meta property="author" content="vladdonets" /> */}
         <Script
           id="gtm-script"
           strategy="afterInteractive"
