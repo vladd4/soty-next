@@ -52,7 +52,7 @@ const Burger = ({ clicked, setClicked, i18n, t }) => {
           <div className={styles.phone_block}>
             <MapPin color="#faba19" strokeWidth="1.5" size={35} />
             <a
-              href="https://maps.app.goo.gl/M4MpJLJrim7oRBW9A"
+              href="https://maps.app.goo.gl/hv7eaaEPmS9TyGzn7"
               target="_blank"
               rel="noreferrer"
             >
