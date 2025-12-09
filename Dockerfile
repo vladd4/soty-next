@@ -1,64 +1,37 @@
-# ============================================
-# Базовий образ
-# ============================================
-FROM node:20-slim AS base
+# Stage 1: Build
+FROM node:20-alpine AS builder
 
-# ============================================
-# Етап 1: Залежності
-# ============================================
-FROM base AS deps
+# Set working directory
 WORKDIR /app
 
+# Install dependencies
 COPY package*.json ./
-RUN npm ci --only=production && \
-    npm cache clean --force
+RUN npm install
 
-# ============================================
-# Етап 2: Збірка
-# ============================================
-FROM base AS builder
-WORKDIR /app
-
-COPY package*.json ./
-RUN npm ci
-
+# Copy source code
 COPY . .
-
-# Копіюємо .env для збірки (якщо потрібно)
 COPY .env .env
 
+# Build the Next.js app
 RUN npm run build
 
-# ============================================
-# Етап 3: Production
-# ============================================
-FROM base AS runner
+# Stage 2: Production image
+FROM node:20-alpine AS runner
+
 WORKDIR /app
 
-ENV NODE_ENV=production
+# Install only production dependencies
+COPY package*.json ./
+RUN npm install --production
 
-# Створюємо непривілейованого користувача
-RUN addgroup --system --gid 1001 nodejs && \
-    adduser --system --uid 1001 nextjs
+# Copy build output from previous stage
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/package.json ./
 
-# Копіюємо production залежності
-COPY --from=deps --chown=nextjs:nodejs /app/node_modules ./node_modules
-
-# Копіюємо зібраний додаток
-COPY --from=builder --chown=nextjs:nodejs /app/public ./public
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-COPY --from=builder --chown=nextjs:nodejs /app/package.json ./package.json
-
-# Копіюємо .env для runtime
-COPY --chown=nextjs:nodejs .env .env
-
-# Перемикаємось на непривілейованого користувача
-USER nextjs
-
+# Expose port
 EXPOSE 3000
 
-ENV PORT=3000
-ENV HOSTNAME="0.0.0.0"
-
-CMD ["node", "server.js"]
+# Start the app
+CMD ["npm", "start"]
