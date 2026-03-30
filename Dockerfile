@@ -1,37 +1,61 @@
-# Stage 1: Build
-FROM node:20-alpine AS builder
+# -------------------------
+# Base image
+# -------------------------
+FROM node:20-alpine AS base
 
-# Set working directory
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
+# -------------------------
 # Install dependencies
-COPY package*.json ./
-RUN npm install
+# -------------------------
+FROM base AS deps
 
-# Copy source code
-COPY . .
-COPY .env .env
+COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
 
-# Build the Next.js app
-RUN npm run build
+RUN if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
+    elif [ -f package-lock.json ]; then npm ci; \
+    elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i --frozen-lockfile; \
+    else echo "Lockfile not found." && exit 1; \
+    fi
 
-# Stage 2: Production image
-FROM node:20-alpine AS runner
-
+# -------------------------
+# Build application
+# -------------------------
+FROM base AS builder
 WORKDIR /app
 
-# Install only production dependencies
-COPY package*.json ./
-RUN npm install --production
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
 
-# Copy build output from previous stage
-COPY --from=builder /app/.next ./.next
+ENV NEXT_TELEMETRY_DISABLED 1
+
+RUN if [ -f yarn.lock ]; then yarn build; \
+    elif [ -f package-lock.json ]; then npm run build; \
+    elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm build; \
+    else echo "Lockfile not found." && exit 1; \
+    fi
+
+# -------------------------
+# Production image
+# -------------------------
+FROM base AS runner
+WORKDIR /app
+
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
+
+RUN addgroup --system --gid 1001 nodejs \
+ && adduser --system --uid 1001 nextjs
+
+# Copy public and standalone output from builder
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/next.config.ts ./
-COPY --from=builder /app/package.json ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# Expose port
+USER nextjs
 EXPOSE 3000
 
-# Start the app
-CMD ["npm", "start"]
+CMD ["node", "server.js"]
