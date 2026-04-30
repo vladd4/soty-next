@@ -3,9 +3,6 @@ import Slider from "../Slider/Slider";
 import styles from "./About.module.scss";
 import Propositions from "../Propositions/Propositions";
 
-import PricePolygon from "../../../public/price_polygon.svg";
-import Image from "next/image";
-
 export default function About() {
   const { t } = useTranslation<"translation">();
   return (
@@ -22,21 +19,7 @@ export default function About() {
           {t("public_href")}.
         </a>
       </p>
-      <article className={styles.pricingRoot}>
-        <h3>{t("about_price_h")}</h3>
-        <h3 className={styles.priceLabel}>{t("about_price_p")}</h3>
-        <h3>01.05.26</h3>
-        <Image
-          alt="Price Polygon"
-          src={PricePolygon}
-          className={styles.polygonLeft}
-        />
-        <Image
-          alt="Price Polygon"
-          src={PricePolygon}
-          className={styles.polygonRight}
-        />
-      </article>
+
       <Propositions />
       <div className={styles.slider_block}>
         <Slider />
